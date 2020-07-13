@@ -59,12 +59,18 @@ func (s *Server) getAdapter(handle int) (persist.Adapter, error) {
 
 func (s *Server) addEnforcer(e *casbin.Enforcer) int {
 	cnt := len(s.enforcerMap)
+	if cnt == 0 {
+		s.enforcerMap = map[int]*casbin.Enforcer{}
+	}
 	s.enforcerMap[cnt] = e
 	return cnt
 }
 
 func (s *Server) addAdapter(a persist.Adapter) int {
 	cnt := len(s.adapterMap)
+	if cnt == 0 {
+		s.adapterMap = map[int]persist.Adapter{}
+	}
 	s.adapterMap[cnt] = a
 	return cnt
 }
