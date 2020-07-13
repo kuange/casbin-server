@@ -25,8 +25,8 @@ RUN go get github.com/golang/protobuf/protoc-gen-go
 ENV GO111MODULE=on
 
 # Copy the source and generate the .proto file
-ADD . /go/src/github.com/casbin/casbin-server
-WORKDIR $GOPATH/src/github.com/casbin/casbin-server
+ADD . /go/src/github.com/kuange/casbin-server
+WORKDIR $GOPATH/src/github.com/kuange/casbin-server
 RUN protoc -I proto --go_out=plugins=grpc:proto proto/casbin.proto
 
 # Download dependencies

@@ -4,7 +4,7 @@ Casbin Server
 [![Build Status](https://travis-ci.org/casbin/casbin-server.svg?branch=master)](https://travis-ci.org/casbin/casbin-server)
 [![Docker](https://img.shields.io/docker/build/casbin/casbin-server.svg)](https://hub.docker.com/r/casbin/casbin-server/builds/)
 [![Coverage Status](https://coveralls.io/repos/github/casbin/casbin-server/badge.svg?branch=master)](https://coveralls.io/github/casbin/casbin-server?branch=master)
-[![Godoc](https://godoc.org/github.com/casbin/casbin-server?status.svg)](https://godoc.org/github.com/casbin/casbin-server)
+[![Godoc](https://godoc.org/github.com/kuange/casbin-server?status.svg)](https://godoc.org/github.com/kuange/casbin-server)
 
 Casbin Server is the ``Access Control as a Service (ACaaS)`` solution based on [Casbin](https://github.com/casbin/casbin). It provides [gRPC](https://grpc.io/) interface for Casbin authorization.
 
@@ -37,17 +37,17 @@ As Casbin-Server uses ``gRPC``, you need to [install Protocol Buffers](https://g
 protoc -I proto --go_out=plugins=grpc:proto proto/casbin.proto
 ```
 
-Alternatively, you can also [run it from an IDE](https://github.com/casbin/casbin-server/blob/6b46c48c8845dc1b8021f2872be08b8e1a62b092/main.go#L15).
+Alternatively, you can also [run it from an IDE](https://github.com/kuange/casbin-server/blob/6b46c48c8845dc1b8021f2872be08b8e1a62b092/main.go#L15).
 
 ## Installation
 
-    go get github.com/casbin/casbin-server
+    go get github.com/kuange/casbin-server
 
 ## Database Support
 
 Similar to Casbin, Casbin-Server also uses adapters to provide policy storage. However, because Casbin-Server is a service instead of a library, the adapters have to be implemented inside Casbin-Server. As Golang is a static language, each adapter requires to import 3rd-party library for that database. We cannot import all those 3rd-party libraries inside Casbin-Server's code, as it causes dependency overhead.
 
-For now, only [Gorm Adapter](https://github.com/casbin/casbin-server/blob/master/server/adapter.go) is built-in with ``mssql``, ``mysql``, ``postgres`` imports all commented. If you want to use ``Gorm Adapter`` with one of those databases, you should uncomment that import line, or add your own import, or even use another adapter by modifying Casbin-Server's source code.
+For now, only [Gorm Adapter](https://github.com/kuange/casbin-server/blob/master/server/adapter.go) is built-in with ``mssql``, ``mysql``, ``postgres`` imports all commented. If you want to use ``Gorm Adapter`` with one of those databases, you should uncomment that import line, or add your own import, or even use another adapter by modifying Casbin-Server's source code.
 
 ## Limitation of ABAC
 
@@ -57,7 +57,7 @@ Casbin-Server also supports the ABAC model as the Casbin library does. You may w
 
 2. All members should be public (first letter capitalized).
 
-3. The Go struct is limited to 11 members at most. If you want to have more members, you should modify [Casbin-Server's source code](https://github.com/casbin/casbin-server/blob/5e21d10e863c7d8461f951417eb1c63fa00204fb/server/abac.go#L27-L40) by adding more members and rebuild it.
+3. The Go struct is limited to 11 members at most. If you want to have more members, you should modify [Casbin-Server's source code](https://github.com/kuange/casbin-server/blob/5e21d10e863c7d8461f951417eb1c63fa00204fb/server/abac.go#L27-L40) by adding more members and rebuild it.
 
 ## Getting Help
 

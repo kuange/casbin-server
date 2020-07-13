@@ -19,7 +19,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	pb "github.com/casbin/casbin-server/proto"
+	pb "github.com/kuange/casbin-server/proto"
 )
 
 type testEngine struct {
